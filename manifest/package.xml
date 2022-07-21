@@ -121,6 +121,7 @@
 		<members>Entitlement</members>
 		<members>EntitlementContact</members>
 		<members>EntityMilestone</members>
+		<members>Episode__c</members>
 		<members>Event</members>
 		<members>ExchangeUserMapping</members>
 		<members>ExpressionFilter</members>
@@ -192,6 +193,7 @@
 		<members>Scorecard</members>
 		<members>ScorecardAssociation</members>
 		<members>ScorecardMetric</members>
+		<members>Seazon__c</members>
 		<members>Seller</members>
 		<members>ServiceContract</members>
 		<members>SessionHijackingEventStore</members>
@@ -203,6 +205,7 @@
 		<members>Task</members>
 		<members>Topic</members>
 		<members>TopicAssignment</members>
+		<members>Tv_Serie__c</members>
 		<members>User</members>
 		<members>UserProvisioningRequest</members>
 		<members>WorkBadge</members>
