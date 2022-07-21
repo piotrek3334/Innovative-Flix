@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premiere_before_tv</fullName>
+    <active>true</active>
+    <errorConditionFormula>Premiere__c  &lt;  DATE(1928,7,3)</errorConditionFormula>
+    <errorDisplayField>Premiere__c</errorDisplayField>
+    <errorMessage>At that time, television did not exist.</errorMessage>
+</ValidationRule>
