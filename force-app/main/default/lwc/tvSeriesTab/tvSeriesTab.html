@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title={tvSerie.Name} class="bear-tile">
+        <div class="slds-var-p-horizontal_small">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <img src={tvSerie.Logo_url__c} alt="tvSerie" width="150" height="250" class="bear-silhouette" />
+                </div>
+                <div class="slds-media__body">
+                    <p class="slds-var-m-bottom_xx-small">Description: {tvSerie.Description__c}</p>
+                    <p class="slds-var-m-bottom_xx-small">Rate: {tvSerie.Rate__c}</p>
+                    <p class="slds-var-m-bottom_xx-small">Category: {tvSerie.Category__c}</p>
+                    <p class="slds-var-m-bottom_xx-small">Directors: {tvSerie.Directors__c} </p>
+                    <lightning-layout-item size="1">
+                        <lightning-button variant="brand" label="Seasons" title="Primary action" value={tvSerie.Id}
+                            onclick={handleOpenRecordClick}></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3">
+                        <c-seasons-List tv-serie-id={tvSerieId}>
+                        </c-seasons-List>
+                    </lightning-layout-item>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

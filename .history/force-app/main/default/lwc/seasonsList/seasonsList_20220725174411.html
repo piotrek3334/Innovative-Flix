@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <template for:each={seasons.data} for:item="season">
+            <p> season.Number__c</p>
+            <lightning-button variant="brand" key={season.id} label={season.Number__c} title="Primary action">
+            </lightning-button>
+        </template>
+    </lightning-card>
+</template>

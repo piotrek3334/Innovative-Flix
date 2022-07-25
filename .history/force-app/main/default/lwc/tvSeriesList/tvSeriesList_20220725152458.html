@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Tv Series">
+        <template if:true={tvSeries.data}>
+            <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
+                class="slds-var-m-bottom_small" label="Search" placeholder="Search for TV Serie" value={searchTerm}>
+            </lightning-input>
+            <template for:each={tvSeries.data} for:item="tvSerie">
+                <lightning-layout-item key={tvSerie.Id} size="3">
+                    <c-tv-Series-Tab tv-serie={tvSerie}>
+                    </c-tv-Series-Tab>
+
+                </lightning-layout-item>
+            </template>
+            <template if:false={hasResults}>
+                <div class="slds-align_absolute-center slds-var-m-vertical_small">
+                    We did not find results...
+                </div>
+            </template>
+        </template>
+        <template if:true={tvSeries.error}>
+            <div class="slds-text-color_error">
+                An error occurred while loading.
+            </div>
+        </template>
+    </lightning-card>
+</template>
