@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+            <template for:each={episodes.data} for:item="episode">
+                <lightning-layout-item key={episode.Id} size="3">
+                    <ol>
+                        <li>Episode nr: {episode.Number__c}</li>
+                        <li>Description: {episode.Description__c}</li>
+                    </ol>
+                </lightning-layout-item>
+            </template>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <template for:each={seasons.data} for:item="season">
+            <lightning-button variant="brand" key={season.id} label={season.Number__c} title="Primary action" value={season.Id}
+            onclick={handleOpenRecordClick}>
+            </lightning-button>
+        </template>
+        <c-episodes-List season-id={seasonId}>
+        </c-episodes-List>
+    </lightning-card>
+</template>
