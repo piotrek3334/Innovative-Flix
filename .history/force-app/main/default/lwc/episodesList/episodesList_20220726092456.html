@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+            <template for:each={episodes.data} for:item="episode">
+                <lightning-layout-item key={episode.Id} size="3">
+                    <ol>
+                        <li>Episode nr: {episode.Number__c}</li>
+                        <li>Description: {episode.Description__c}</li>
+                    </ol>
+                </lightning-layout-item>
+            </template>
+            <template if:false={hasResults}>
+                <div class="slds-align_absolute-center slds-var-m-vertical_small">
+                    We did not find results...
+                </div>
+            </template>
+        <template if:true={episodes.error}>
+            <div class="slds-text-color_error">
+                An error occurred while loading.
+            </div>
+        </template>
+    </lightning-card>
+</template>
