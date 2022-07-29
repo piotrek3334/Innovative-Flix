@@ -23,7 +23,7 @@ public with sharing class TvSerieUpdateBatch implements Database.Batchable<SObje
         mail.setToAddresses(toAddresses);
         mail.setReplyTo('piotr.lobejko@accenture.com');
         mail.setSubject('New Tv Series from last week');
-        mail.setPlainTextBody('Hello \n' + 'New Tv Series from last week: \n' + body);
+        mail.setPlainTextBody('Hello \n' + 'New Tv Series from last week: \n' + this.body);
         try{
             Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
         } catch(exception e) {

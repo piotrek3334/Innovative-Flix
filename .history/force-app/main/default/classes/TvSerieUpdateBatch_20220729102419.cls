@@ -1,16 +1,17 @@
 public with sharing class TvSerieUpdateBatch implements Database.Batchable<SObject>{
-    String body;
-
+    String body ='';
     public Database.QueryLocator start(Database.BatchableContext BC){
+
         return Database.getQueryLocator('SELECT Name FROM Tv_Serie__c WHERE Premiere__c > LAST_WEEK');
-    }
+     }
   
     public void execute(Database.BatchableContext BC, List<Tv_Serie__c> scope) {
+        List<Tv_Serie__c> tvSerieList =  (List<Tv_Serie__c>)JSON.deserialize(scope, List<Tv_Serie__c>.class);
 
-        for (Integer i = 0; i < scope.size(); i++){
-            this.body = body + String.valueOf(i + 1) + '. ' + SYSTEM.JSON.serialize(scope[i].Name) + '\n';
+        for (Integer i = 1; i <= tvSerieList.size(); i++){
+            body = body + String.valueOf(i) + '. ' + tvSerieList[i].Name + '\n';
         }
-        System.debug('string: ' + body);
+        System.debug('string: ' +body);
     }
 
     public void finish(Database.BatchableContext BC){
@@ -23,7 +24,7 @@ public with sharing class TvSerieUpdateBatch implements Database.Batchable<SObje
         mail.setToAddresses(toAddresses);
         mail.setReplyTo('piotr.lobejko@accenture.com');
         mail.setSubject('New Tv Series from last week');
-        mail.setPlainTextBody('Hello \n' + 'New Tv Series from last week: \n' + body);
+        mail.setPlainTextBody('Hello \n New Tv Series from last week: \n' + body);
         try{
             Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
         } catch(exception e) {

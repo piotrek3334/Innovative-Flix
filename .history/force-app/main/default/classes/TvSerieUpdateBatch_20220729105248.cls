@@ -1,5 +1,5 @@
 public with sharing class TvSerieUpdateBatch implements Database.Batchable<SObject>{
-    String body;
+    static String body ='';
 
     public Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator('SELECT Name FROM Tv_Serie__c WHERE Premiere__c > LAST_WEEK');
@@ -8,7 +8,7 @@ public with sharing class TvSerieUpdateBatch implements Database.Batchable<SObje
     public void execute(Database.BatchableContext BC, List<Tv_Serie__c> scope) {
 
         for (Integer i = 0; i < scope.size(); i++){
-            this.body = body + String.valueOf(i + 1) + '. ' + SYSTEM.JSON.serialize(scope[i].Name) + '\n';
+            body = body + String.valueOf(i + 1) + '. ' + SYSTEM.JSON.serialize(scope[i].Name) + '\n';
         }
         System.debug('string: ' + body);
     }
